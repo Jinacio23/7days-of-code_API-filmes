@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #17162E;
+    color: #fff;
+    font-family: 'Kumbh Sans', sans-serif;
+    padding: 0 50px;
+}
+
+.tituloPrincipal {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44.65px;
+    text-align: center;
+    margin-top: 62px;
+    margin-bottom: 45px;
+}
+
+nav {
+    position: relative;
+    width: 634px;
+    height: 74px;
+    margin: 0 auto 20px;
+    opacity: 20%;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.barraPesq {
+    width: 560px;
+    height: 74px;
+    border-radius: 8px;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22.32;
+    border: none;
+    outline: none;
+    padding-left: 25px;
+}
+
+.lupa {
+    position: absolute;
+    /* font-size: 20px; */
+    left: 585px;
+    top: 26px;
+    color: #8a8a8a;
+}
+
+.meusFav {
+    margin: 0 auto 45px;
+    width: 330px;
+}
+
+/* #checked{
+} */
+
+.subtext {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+
+}
+
+.info {
+    max-width: 1224px;
+    height: 201px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 32.83px 24.54px 79px 0px #00000026;
+    background-color: #1D1C3B;
+}
+
+.imgFilme {
+    width: 180px;
+    height: auto;
+    border-radius: 50%;
+    margin-left: 24px;
+    margin-top: 30px;
+}
+
+.informacao {
+    width: 300px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.tituloFilme {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22.32px;
+    margin-bottom: 8px;
+}
+
+.icons {
+    display: flex;
+    gap: 60px;
+}
+
+.estrela i {
+    color: #D7A82F;
+}
+
+.favorito i {
+    color: #BA0707;
+}
+
+.icons p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22.32px;
+    display: inline;
+    margin-left: 5px;
+}
+
+
+
+.descricao {
+    width: 592px;
+    height: 128px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 2;
+    /* margin-top: -30px; */
+}
