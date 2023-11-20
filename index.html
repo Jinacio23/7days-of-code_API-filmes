@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
+    <script type="module" src="script.js" defer></script>
+    <script type="module" src="key.js" defer></script>
 </head>
 
 <body>
@@ -20,8 +22,8 @@
         <h1 class="tituloPrincipal">Filmes Populares</h1>
 
         <nav>
-            <input type="text" class="barraPesq" placeholder="Digite algum filme para pesquisar...">
-            <img class="lupa" src="Img/search-icon.svg">
+            <input type="text" id="input" class="barraPesq" placeholder="Digite algum filme para pesquisar...">
+            <img class="lupa" id="btn" src="Img/search-icon.svg">
         </nav>
 
         <div class="meusFav">
@@ -30,10 +32,9 @@
         </div>
 
     </header>
-    <main>
-        <section class="info">
+    <main id="filmes">
+        <!--<section class="info">
             <img src="Img/ultimato.png" class="imgFilme">
-
             <div class="informacao">
                 <h2 class="tituloFilme">Avengers Endgame(2019)</h2>
                 <div class="icons">
@@ -47,74 +48,15 @@
                     </div>
                 </div>
             </div>
-
             <div class="descricao">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
             </div>
-        </section>
-        <section class="info">
-            <img src="Img/Batman2022.png" class="imgFilme">
+        </section>-->
 
-            <div class="informacao">
-                <h2 class="tituloFilme">Batman(2022)</h2>
-                <div class="icons">
-                    <div class="estrela">
-                        <i class="bi bi-star-fill"></i>
-                        <p>9.4</p>
-                    </div>
-                    <div class="favorito">
-                        <i class="bi bi-suit-heart"></i>
-                        <p>Favoritar</p>
-                    </div>
-                </div>
-            </div>
+        <!-- <section class="info semResultado">
+            <h2>Este filme não está disponivel no momento...</h2>
+        </section> -->
 
-            <div class="descricao">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </div>
-        </section>
-        <section class="info">
-            <img src="Img/doutor estranho.png" class="imgFilme">
-
-            <div class="informacao">
-                <h2 class="tituloFilme">Doctor Strange in the multiverse of Madness</h2>
-                <div class="icons">
-                    <div class="estrela">
-                        <i class="bi bi-star-fill"></i>
-                        <p>8.5</p>
-                    </div>
-                    <div class="favorito">
-                        <i class="bi bi-suit-heart"></i>
-                        <p>Favoritar</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="descricao">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </div>
-        </section>
-        <section class="info">
-            <img src="Img/avatar.png" class="imgFilme">
-
-            <div class="informacao">
-                <h2 class="tituloFilme">Avatar</h2>
-                <div class="icons">
-                    <div class="estrela">
-                        <i class="bi bi-star-fill"></i>
-                        <p>9.5</p>
-                    </div>
-                    <div class="favorito">
-                        <i class="bi bi-suit-heart"></i>
-                        <p>Favoritar</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="descricao">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </div>
-        </section>
     </main>
 </body>
 
