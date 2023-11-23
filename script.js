@@ -3,13 +3,19 @@ import { apiKey } from "./key" //resolver erro de CORS - same-origin
 const hubFilmes = document.getElementById('filmes')
 const input = document.getElementById('input')
 const checkbox = document.getElementById('checked')
+const apenasFavoritos = document.querySelectorAll('favorito')
 
 let filmesFavoritos = [];
 
 //carregando site
 document.addEventListener('DOMContentLoaded', () => {
 
-//consumindo API
+    //Carregando LocalStorage
+    if (localStorage.favoritos) {
+        filmesFavoritos = JSON.parse(localStorage.getItem('favoritos'))
+    }
+
+    //consumindo API
     function displayResults(pesquisa) {
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR`)
             .then(resp => resp.json())
@@ -18,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 dados.results.forEach((valorFilme) => {
                     if (valorFilme.title.toLowerCase().includes(pesquisa.toLowerCase())) {
                         adicionarFilme(valorFilme);
-                    } 
+                    }
                 })
             })
         //.catch(err => console.log(err))
@@ -56,20 +62,24 @@ document.addEventListener('DOMContentLoaded', () => {
         favorito.classList.add('favorito')
 
         favorito.addEventListener('click', () => {
-            if (filmesFavoritos.includes(filme)) {
+            if (filmesFavoritos.includes(filme.title)) {
                 heartIcon.setAttribute('class', 'bi bi-suit-heart')
-                filmesFavoritos.splice(filmesFavoritos.indexOf(filme), 1)
+                removeLocalStorage(filme.title)
             } else {
                 heartIcon.setAttribute('class', 'bi bi-suit-heart-fill')
-                filmesFavoritos.push(filme)
+                addLocalStorage(filme.title)
             }
-            console.log(filmesFavoritos);
         })
         iconesFilme.appendChild(favorito)
 
         const heartIcon = document.createElement('i')
         heartIcon.setAttribute('id', 'heart')
-        heartIcon.setAttribute('class', 'bi bi-suit-heart')
+        if (filmesFavoritos.includes(filme.title)) {
+            heartIcon.setAttribute('class', 'bi bi-suit-heart-fill')
+        } else {
+            heartIcon.setAttribute('class', 'bi bi-suit-heart')
+        }
+
         const favTxt = document.createElement('p')
         favTxt.innerHTML = 'Favoritar'
         favorito.appendChild(heartIcon)
@@ -79,6 +89,20 @@ document.addEventListener('DOMContentLoaded', () => {
         descricaoFilme.classList.add('descricao')
         descricaoFilme.innerHTML = filme.overview
         abaFilme.appendChild(descricaoFilme)
+
+
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                if(filmesFavoritos.includes(filme.title)){
+                    abaFilme.style.display = 'flex'
+                } else {
+                    abaFilme.style.display = 'none'
+                }
+            } else if (!checkbox.checked) {
+                abaFilme.style.display = 'flex'
+            }
+        })
+
     }
 
     input.addEventListener('input', () => {
@@ -87,17 +111,21 @@ document.addEventListener('DOMContentLoaded', () => {
         displayResults(pesquisa)
     })
 
-    checkbox.addEventListener('change', () => {
-
-        if (checkbox.checked) {
-            hubFilmes.innerHTML = ''
-            filmesFavoritos.forEach(filme => {
-                adicionarFilme(filme)
-            })
-        } else if (!checkbox.checked) {
-            displayResults('')
-        }
-    })
     displayResults('')
 });
 
+//Adicionando ao Localstorage
+function addLocalStorage(valor) {
+    if (localStorage.favoritos) {
+        filmesFavoritos = JSON.parse(localStorage.getItem('favoritos'))
+    }
+    filmesFavoritos.push(valor)
+    localStorage.favoritos = JSON.stringify(filmesFavoritos)
+}
+
+//Removendo do LocalStorage
+function removeLocalStorage(valor) {
+    filmesFavoritos = JSON.parse(localStorage.getItem('favoritos'))
+    filmesFavoritos.splice(filmesFavoritos.indexOf(valor), 1)
+    localStorage.favoritos = JSON.stringify(filmesFavoritos)
+}
