@@ -1,4 +1,4 @@
-import { apiKey } from "./key" //resolver erro de CORS - same-origin
+import { apiKey } from "./key.js"
 
 const hubFilmes = document.getElementById('filmes')
 const input = document.getElementById('input')
